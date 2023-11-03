@@ -1,0 +1,117 @@
+﻿<Page x:Class="Policlinic.Pages.HomePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Policlinic.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="1000"
+      Title="HomePage">
+
+    <Grid Background="#FFD7FFFA">
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid  Grid.ColumnSpan="3" Grid.RowSpan="5" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+        <Button Height="100" Width="100" 
+                HorizontalAlignment="Right" 
+                Background="Transparent"
+                x:Name="btn_Alert"
+                Click="btn_Alert_Click"
+                VerticalAlignment="Top" BorderBrush="{x:Null}">
+                <Image Source="\Resource\Press.png" />
+
+            </Button>
+
+        
+        <Button Height="100" Width="100" 
+                HorizontalAlignment="Left" 
+                Background="Transparent"
+                x:Name="btn_Exit"
+                Click="btn_Exit_Click"
+                VerticalAlignment="Top" BorderBrush="{x:Null}">
+                <Image Source="\Resource\Exit.png" />
+
+            </Button>
+            <Border HorizontalAlignment="Center" CornerRadius="10" Width="500" Height="70" Margin="10" Background="#FF71AADA">
+                <TextBlock  
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                
+                    Text="Главная страница пациента" 
+                    FontSize="35"
+                    Foreground="White"
+                     Grid.ColumnSpan="2"/>
+
+            </Border>
+            
+
+
+      
+
+
+
+                <Button x:Name="btn_Info"
+                    Height="60"
+                    Width="300"
+                    Grid.Row="1"
+                    Style="{StaticResource ButtonStyle}"
+                    Background="#FF3D65AC"
+                    Foreground="White"
+                    Content="Мои данные"
+                    FontSize="30" 
+                        Click="btn_Info_Click"
+                    FontFamily="Book Antiqua">
+
+                </Button>
+
+                <Button x:Name="btn_History"
+                    Height="60"
+                    Width="300"
+                        Grid.Row="2"
+                    Style="{StaticResource ButtonStyle}"
+                    Background="#FF3D65AC"
+                    Foreground="White"
+                    Content="Моя история"
+                    FontSize="30" 
+                        Click="btn_History_Click"
+                    FontFamily="Book Antiqua">
+
+                </Button>
+
+                <Button x:Name="btn_Order"
+                    Height="60"
+                    Width="300"
+                    Style="{StaticResource ButtonStyle}"
+                        Click="btn_Order_Click"
+                    Grid.Row="3"
+                    Background="#FF3D65AC"
+                    Foreground="White"
+                    Content="Записаться на услугу"
+                    FontSize="27" 
+                    FontFamily="Book Antiqua">
+
+                </Button>
+      
+
+        </Grid>
+
+    </Grid>
+</Page>
