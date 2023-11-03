@@ -36,22 +36,43 @@ namespace Policlinic.Pages
 
         private void btn_Order_Click(object sender, RoutedEventArgs e)
         {
-
+            MainFrame.Navigate(new OrderServicePage());
         }
 
         private void btn_History_Click(object sender, RoutedEventArgs e)
         {
-
+            MainFrame.Navigate(new HistoryPage(CurrentPatient));
         }
 
         private void btn_Info_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new PersonalAccountPage(CurrentPatient));
         }
-
+        
         private void btn_Exit_Click(object sender, RoutedEventArgs e)
         {
 
+            string newWindowType = typeof(MainWindow).Name;
+            Window newWindow = null;
+            
+
+            foreach (var window in Application.Current.Windows)
+            {
+                if (window.GetType().Name == newWindowType)
+                {
+                    
+                    newWindow = (Window)window;
+                    break;
+                }
+            }
+            
+           
+            if (newWindow == null)
+            {
+                newWindow.Close();
+           
+
+            }
         }
 
         private void btn_Alert_Click(object sender, RoutedEventArgs e)

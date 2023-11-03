@@ -18,8 +18,9 @@ namespace Policlinic.DB
         public Employee()
         {
             this.Appointment = new HashSet<Appointment>();
+            this.FIO = $"{LName} {FName} {MName}";
         }
-    
+        public string FIO { get; set; }
         public int IdEmployee { get; set; }
         public string FName { get; set; }
         public string LName { get; set; }
@@ -32,7 +33,7 @@ namespace Policlinic.DB
         public int IdPost { get; set; }
         public int IdGender { get; set; }
         public string Phone { get; set; }
-    
+        
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Appointment> Appointment { get; set; }
         public virtual Department Department { get; set; }

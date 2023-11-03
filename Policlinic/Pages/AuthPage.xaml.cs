@@ -60,6 +60,7 @@ namespace Policlinic.Pages
                     auth.Visibility = Visibility.Collapsed;
                 }
                 main.ShowDialog();
+                
                 auth.Visibility = Visibility.Visible;
                 tb_Login.Text = "Логин";
                 tb_Pass.Text = "Пароль";

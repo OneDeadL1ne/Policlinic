@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using static Policlinic.ClassHelper.NavigationClass;
 using static Policlinic.ClassHelper.EntityClass;
 using System.Data.Entity.Migrations;
+using Policlinic.Windows;
 
 namespace Policlinic.Pages
 {
@@ -87,16 +88,44 @@ namespace Policlinic.Pages
 
         private void btn_Exit_Click(object sender, RoutedEventArgs e)
         {
+            string newWindowType = typeof(MainWindow).Name;
+            Window newWindow = null;
 
+
+            foreach (var window in Application.Current.Windows)
+            {
+                if (window.GetType().Name == newWindowType)
+                {
+            
+                    newWindow = (Window)window;
+                    break;
+                }
+            }
+            
+
+            if (newWindow == null)
+            {
+                newWindow.Close();
+
+
+            }
         }
 
         private void btn_Back_Click(object sender, RoutedEventArgs e)
         {
-
+            MainFrame.GoBack();
         }
 
         private void btn_Edit_Click(object sender, RoutedEventArgs e)
         {
+            if (!isEdit)
+            {
+
+                btn_Edit.Content = "Изменить";
+                InputDisable();
+
+                
+            }
 
             
             if (isEdit)
@@ -114,25 +143,10 @@ namespace Policlinic.Pages
                 CurrentPatient.Password = tb_Pass.Text;
 
                 Entity.Patient.AddOrUpdate(CurrentPatient);
-                
-                isEdit = !isEdit;
-
-                
-
-
-                Entity.SaveChanges();
-                return;
             }
 
-            if (!isEdit)
-            {
-                isEdit = !isEdit;
-                btn_Edit.Content = "Изменить";
-                InputDisable();
-                
-                return;
-            }
-            
+            Entity.SaveChanges();
+            isEdit = !isEdit;
         }
 
         private void tb_GotFocus(object sender, RoutedEventArgs e)
