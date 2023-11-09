@@ -43,26 +43,20 @@ namespace Policlinic.Pages
         {
             InitializeComponent();
         }
-        
+
         public HistoryPage(Patient patient)
         {
             InitializeComponent();
             List<Order> Orders = Entity.Order.Where(x => x.IdPatient == patient.IdPatient).ToList();
-            List<ModelService> services = new List<ModelService>(); 
-            foreach(var order in Orders)
+            List<ModelService> services = new List<ModelService>();
+            foreach (var order in Orders)
             {
                 ModelService model = new ModelService(order.Appointment.DateService, order.Appointment.MedicalService.TitleService, $"{order.Appointment.Employee.LName} {order.Appointment.Employee.FName} {order.Appointment.Employee.MName}", "gjitk yf[eq");
                 services.Add(model);
             }
-            
+
             lv_Service.ItemsSource = services;
-            
-            
-
         }
-
-        
-
         private void btn_Back_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.GoBack();

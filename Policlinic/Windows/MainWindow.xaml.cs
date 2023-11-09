@@ -26,6 +26,7 @@ namespace Policlinic
         public MainWindow()
         {
             InitializeComponent();
+            HomeWindow = this;
             MainFrame = mainFrame;
             MainFrame.Navigate(new HomePage());
             
@@ -34,6 +35,7 @@ namespace Policlinic
         public MainWindow(Patient patient)
         {
             InitializeComponent();
+            HomeWindow = this;
             MainFrame = mainFrame;
             MainFrame.Navigate(new HomePage(patient));
 

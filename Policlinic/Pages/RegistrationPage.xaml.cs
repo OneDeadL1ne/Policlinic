@@ -32,10 +32,7 @@ namespace Policlinic.Pages
             AuthFrame.GoBack();
         }
 
-        private void btn_Registration_Click(object sender, RoutedEventArgs e)
-        {
 
-        }
 
         private void tb_GotFocus(object sender, RoutedEventArgs e)
         {
@@ -183,6 +180,10 @@ namespace Policlinic.Pages
                     }
                     break;
             }
+        }
+        private void btn_Registration_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -14,6 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using static Policlinic.ClassHelper.NavigationClass;
 using static Policlinic.ClassHelper.EntityClass;
+using Policlinic.DB;
+
 namespace Policlinic.Pages
 {
     /// <summary>

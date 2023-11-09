@@ -30,7 +30,6 @@ namespace Policlinic.Pages
         public PersonalAccountPage()
         {
             InitializeComponent();
-
         }
 
         public PersonalAccountPage(Patient patient)
@@ -46,68 +45,22 @@ namespace Policlinic.Pages
             tb_Phone.Text = patient.Phone;
             tb_Email.Text = patient.Email;
             CurrentPatient = Entity.Patient.ToList().Where(x => x.IdPatient == patient.IdPatient).FirstOrDefault();
-
-
         }
-
-        public void InputDisable()
-        {
-            tb_FName.IsEnabled = false;
-            tb_MName.IsEnabled = false;
-            tb_LName.IsEnabled = false;
-            tb_Address.IsEnabled = false;
-            tb_Login.IsEnabled = false;
-            tb_Pass.IsEnabled = false;
-            tb_Phone.IsEnabled = false;
-            tb_Email.IsEnabled = false;
-
-        }
-        public void InputEnable()
-        {
-            tb_FName.IsEnabled = true;
-            tb_MName.IsEnabled = true;
-            tb_LName.IsEnabled = true;
-            tb_Address.IsEnabled = true;
-            tb_Login.IsEnabled = true;
-            tb_Pass.IsEnabled = true;
-            tb_Phone.IsEnabled = true;
-            tb_Email.IsEnabled = true;
-
-
-            tb_FName.Foreground = Brushes.Black;
-            tb_MName.Foreground = Brushes.Black;
-            tb_LName.Foreground = Brushes.Black;
-            tb_Address.Foreground = Brushes.Black;
-            tb_Login.Foreground = Brushes.Black;
-            tb_Pass.Foreground = Brushes.Black;
-            tb_Phone.Foreground = Brushes.Black;
-            tb_Email.Foreground = Brushes.Black;
-
-
-        }
-
         private void btn_Exit_Click(object sender, RoutedEventArgs e)
         {
             string newWindowType = typeof(MainWindow).Name;
             Window newWindow = null;
-
-
             foreach (var window in Application.Current.Windows)
             {
                 if (window.GetType().Name == newWindowType)
                 {
-            
                     newWindow = (Window)window;
                     break;
                 }
-            }
-            
-
+            }            
             if (newWindow == null)
             {
                 newWindow.Close();
-
-
             }
         }
 
@@ -120,17 +73,11 @@ namespace Policlinic.Pages
         {
             if (!isEdit)
             {
-
                 btn_Edit.Content = "Изменить";
                 InputDisable();
-
-                
-            }
-
-            
+            }            
             if (isEdit)
-            {
-                
+            {   
                 btn_Edit.Content = "Сохранить";
                 InputEnable();
                 CurrentPatient.Address = tb_Address.Text;
@@ -141,7 +88,6 @@ namespace Policlinic.Pages
                 CurrentPatient.Phone = tb_Phone.Text;
                 CurrentPatient.Login = tb_Login.Text;
                 CurrentPatient.Password = tb_Pass.Text;
-
                 Entity.Patient.AddOrUpdate(CurrentPatient);
             }
 
@@ -222,6 +168,42 @@ namespace Policlinic.Pages
                     break;
 
             }
+        }
+
+        public void InputDisable()
+        {
+            tb_FName.IsEnabled = false;
+            tb_MName.IsEnabled = false;
+            tb_LName.IsEnabled = false;
+            tb_Address.IsEnabled = false;
+            tb_Login.IsEnabled = false;
+            tb_Pass.IsEnabled = false;
+            tb_Phone.IsEnabled = false;
+            tb_Email.IsEnabled = false;
+
+        }
+        public void InputEnable()
+        {
+            tb_FName.IsEnabled = true;
+            tb_MName.IsEnabled = true;
+            tb_LName.IsEnabled = true;
+            tb_Address.IsEnabled = true;
+            tb_Login.IsEnabled = true;
+            tb_Pass.IsEnabled = true;
+            tb_Phone.IsEnabled = true;
+            tb_Email.IsEnabled = true;
+
+
+            tb_FName.Foreground = Brushes.Black;
+            tb_MName.Foreground = Brushes.Black;
+            tb_LName.Foreground = Brushes.Black;
+            tb_Address.Foreground = Brushes.Black;
+            tb_Login.Foreground = Brushes.Black;
+            tb_Pass.Foreground = Brushes.Black;
+            tb_Phone.Foreground = Brushes.Black;
+            tb_Email.Foreground = Brushes.Black;
+
+
         }
 
         private void tb_LostFocus(object sender, RoutedEventArgs e)

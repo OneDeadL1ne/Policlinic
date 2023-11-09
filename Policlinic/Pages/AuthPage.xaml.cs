@@ -40,17 +40,12 @@ namespace Policlinic.Pages
                 return;
             }
 
-            try
-            {
-                
-
                 var isPatient = Entity.Patient.Where(i => i.Login.Trim() == tb_Login.Text.ToString() && i.Password.Trim() == tb_Pass.Text.ToString()).FirstOrDefault();
                 
                 if (isPatient == null)
                 {
                     MessageBox.Show("Пользователь не найден!");
                     return;
-
                 }
 
                 MainWindow main = new MainWindow(isPatient);
@@ -66,29 +61,17 @@ namespace Policlinic.Pages
                 tb_Pass.Text = "Пароль";
                 tb_Pass.Foreground = Brushes.Gray;
                 tb_Login.Foreground = Brushes.Gray;
-            }
-            catch (Exception)
-            {
-                
-                    
-            }
-            
-
-            
 
         }
 
         private void btn_Registration_Click(object sender, RoutedEventArgs e)
         {
-
             AuthFrame.Navigate(new RegistrationPage());
         }
 
         private void tb_GotFocus(object sender, RoutedEventArgs e)
         {
-            TextBox textBox =(TextBox)sender;
-            
-            
+            TextBox textBox =(TextBox)sender;   
             switch (textBox.Name)
             {
                 case "tb_Login":
